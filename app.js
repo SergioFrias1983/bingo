@@ -1,6 +1,6 @@
 'use strict';
 
-const VERSION = 'Versión 1 · 08/11/26';
+const VERSION = 'Versión 1.1 · 08/11/26';
 const MAXIMO = 99;
 const BLOQUEO_MS = 700;
 
@@ -15,7 +15,7 @@ function sacarNumero(salidos, azar = Math.random) {
 }
 
 function ultimos(salidos, cantidad = 5) {
-  return salidos.slice(-cantidad).reverse(); // el más nuevo primero
+  return salidos.slice(-cantidad); // el más viejo a la izquierda, el más nuevo a la derecha
 }
 
 function validarCopia(datos) {
@@ -111,7 +111,10 @@ if (typeof document !== 'undefined') {
     hist.innerHTML = '';
     for (let i = 0; i < 5; i++) {
       const li = document.createElement('li');
-      if (lista[i] !== undefined) li.textContent = lista[i];
+      if (lista[i] !== undefined) {
+        li.textContent = lista[i];
+        if (i === lista.length - 1) li.className = 'nuevo';
+      }
       else li.className = 'hueco';
       hist.appendChild(li);
     }

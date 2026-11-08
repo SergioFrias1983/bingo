@@ -1,4 +1,4 @@
-const CACHE = 'bingo-v1';
+const CACHE = 'bingo-v1.1';
 const ARCHIVOS = ['./', 'index.html', 'styles.css', 'app.js', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png'];
 
 self.addEventListener('install', (e) => {
