@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#121418">
+  <title>Bingo</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="barra">
+    <h1>Bingo</h1>
+    <button id="btnMenu" class="btn-icono" aria-label="Menú" title="Menú (M)">☰</button>
+  </header>
+
+  <main>
+    <section class="historial" aria-label="Últimos 5 números">
+      <h2>Últimos 5</h2>
+      <ol id="historial"></ol>
+    </section>
+
+    <section class="actual" aria-live="polite">
+      <div id="bola" class="bola vacia">–</div>
+      <p id="contador" class="contador">Salieron 0 de 99</p>
+    </section>
+
+    <button id="btnSacar" class="btn btn-principal">Sacar número</button>
+    <p class="atajo">Atajo: Espacio o Enter</p>
+  </main>
+
+  <div id="menu" class="capa" hidden>
+    <div class="panel" role="dialog" aria-label="Menú">
+      <h2>Menú</h2>
+      <button id="btnExportar" class="btn btn-secundario">Exportar copia (.json)</button>
+      <button id="btnImportar" class="btn btn-secundario">Importar copia (.json)</button>
+      <button id="btnNuevo" class="btn btn-peligro">Nuevo juego</button>
+      <button id="btnCerrarMenu" class="btn btn-secundario">Cerrar</button>
+      <p id="version" class="version"></p>
+      <input id="archivo" type="file" accept=".json,application/json" hidden>
+    </div>
+  </div>
+
+  <div id="confirmar" class="capa" hidden>
+    <div class="panel" role="alertdialog" aria-labelledby="confTexto">
+      <p id="confTexto">¿Empezar un juego nuevo? Se borran los números que salieron.</p>
+      <button id="btnConfSi" class="btn btn-peligro">Sí, empezar de nuevo</button>
+      <button id="btnConfNo" class="btn btn-secundario">Cancelar</button>
+    </div>
+  </div>
+
+  <div id="aviso" class="aviso" hidden></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
